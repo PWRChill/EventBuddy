@@ -10,6 +10,6 @@ import UIKit
 
 class MoreHeaderTableViewCell: UITableViewCell {
     
-    @IBOutlet var titleLabel: UILabel!
-
+    @IBOutlet var sectionTitleButton: UIButton!
+   
 }

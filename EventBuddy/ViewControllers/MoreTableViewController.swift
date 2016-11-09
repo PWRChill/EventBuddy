@@ -11,6 +11,19 @@ import UIKit
 class MoreTableViewController: UITableViewController {
 
     var data = [String:[String]]()
+    var selectedSection: Int? {
+        didSet {
+         
+            if  let selectedSection = self.selectedSection,
+                oldValue == selectedSection {
+                
+                self.selectedSection = nil
+            
+            }
+            
+            self.tableView.reloadData()
+        }
+    }
     
     private func getSection(number: Int) -> [String] {
         
@@ -29,9 +42,22 @@ class MoreTableViewController: UITableViewController {
 
         return returnArray
     }
+    
     private var sections: [String] {
 
         return ["Food","Entertainment","Sport"]
+    }
+    
+    private func getSectionNumberFor(sectionTitle: String) -> Int? {
+        
+        for (index,section) in self.sections.enumerated() {
+            if section == sectionTitle {
+                return index
+            }
+        }
+        
+        return nil
+        
     }
     
     override func viewDidLoad() {
@@ -53,9 +79,14 @@ class MoreTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return self.getSection(number: section).count
+        if let selectedSection = self.selectedSection,
+            selectedSection == section {
+            
+            return self.getSection(number: section).count
+        }
+        
+        return 0
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MoreTableViewCell", for: indexPath) as? MoreTableViewCell
@@ -68,14 +99,24 @@ class MoreTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MoreHeaderTableViewCell") as? MoreHeaderTableViewCell
         
-        cell?.titleLabel?.text = self.sections[section]
+        cell?.sectionTitleButton.setTitle(self.sections[section], for: .normal)
         
         return cell
     }
+    
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 80
     }
+    
+    @IBAction func sectionHeaderWasPressed(_ sender: UIButton) {
+        
+        guard let buttonTitle = sender.titleLabel?.text else { return }
+        
+        self.selectedSection = self.getSectionNumberFor(sectionTitle: buttonTitle)
 
+    }
+
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

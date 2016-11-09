@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZMq-iz-e0b">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZMq-iz-e0b">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -77,7 +77,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b76-59-mLY" id="eDA-ei-sPh">
-                                    <frame key="frameInset" width="375" height="61"/>
+                                    <frame key="frameInset" width="375" height="62"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RDn-pC-Nb1">
@@ -110,23 +110,27 @@
                                 <rect key="frame" x="0.0" y="154" width="375" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mcy-7O-bFo" id="llD-rR-Ogd">
-                                    <frame key="frameInset" width="375" height="61"/>
+                                    <frame key="frameInset" width="375" height="62"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Section Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUw-9r-Ses">
-                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moB-86-I9I">
+                                            <state key="normal" title="Section Title"/>
+                                            <connections>
+                                                <action selector="sectionHeaderWasPressed:" destination="iSA-1z-9sJ" eventType="touchUpInside" id="aYq-Ty-uAk"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="tUw-9r-Ses" firstAttribute="centerX" secondItem="llD-rR-Ogd" secondAttribute="centerX" id="NdQ-ef-3ka"/>
-                                        <constraint firstItem="tUw-9r-Ses" firstAttribute="centerY" secondItem="llD-rR-Ogd" secondAttribute="centerY" id="Uj9-a8-TbU"/>
+                                        <constraint firstItem="moB-86-I9I" firstAttribute="top" secondItem="llD-rR-Ogd" secondAttribute="top" id="C9e-3V-t1l"/>
+                                        <constraint firstAttribute="bottom" secondItem="moB-86-I9I" secondAttribute="bottom" id="Kk0-Cn-4Yp"/>
+                                        <constraint firstItem="moB-86-I9I" firstAttribute="leading" secondItem="llD-rR-Ogd" secondAttribute="leading" id="StO-Tt-Zhw"/>
+                                        <constraint firstAttribute="trailing" secondItem="moB-86-I9I" secondAttribute="trailing" id="oGD-rX-ejs"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <connections>
-                                    <outlet property="titleLabel" destination="tUw-9r-Ses" id="S9Q-tq-I54"/>
+                                    <outlet property="sectionTitleButton" destination="moB-86-I9I" id="JXz-aS-VWv"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

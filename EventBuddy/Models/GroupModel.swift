@@ -12,6 +12,21 @@ import RealmSwift
 class GroupModel: BaseModel {
     
     dynamic var name: String?
-    let dogs = List<SingularObjectModel>()
+    let models = List<SingularObjectModel>()
+    
+    static func groupModel(name: String, models: List<SingularObjectModel>?) -> GroupModel {
+    
+        let groupModel = GroupModel()
+        groupModel.name = name
+        
+        if let models = models {
+            groupModel.models.append(objectsIn: models)
+        }
+        
+        return groupModel
+    }
+    
+    
+    
     
 }

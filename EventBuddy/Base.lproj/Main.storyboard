@@ -12,7 +12,8 @@
         <!--Swipe-->
         <scene sceneID="88A-kh-NVT">
             <objects>
-                <viewController id="sIn-nk-EMI" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Phq-Ou-mkt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="sIn-nk-EMI" customClass="GameViewController" customModule="EventBuddy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="78v-9G-NyS"/>
                         <viewControllerLayoutGuide type="bottom" id="ssN-Lc-XZo"/>
@@ -21,17 +22,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cRx-Jl-W2x">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_img_ava_image" translatesAutoresizingMaskIntoConstraints="NO" id="cRx-Jl-W2x">
+                                <color key="backgroundColor" red="0.28627450980392155" green="0.28627450980392155" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="cRx-Jl-W2x" secondAttribute="height" multiplier="1:1" id="Qxm-vc-H1u"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="60"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="yJ2-Lg-3o3">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unknown name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="yJ2-Lg-3o3">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Uon-iV-aAW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unknown address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Uon-iV-aAW">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -41,6 +48,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="V1f-Xb-8Cs" firstAttribute="centerX" secondItem="vgl-1i-Cxm" secondAttribute="centerX" id="1NT-K8-PMN"/>
                             <constraint firstItem="Uon-iV-aAW" firstAttribute="width" secondItem="yJ2-Lg-3o3" secondAttribute="width" id="2qQ-Mi-ulg"/>
@@ -57,10 +65,29 @@
                             <constraint firstItem="V1f-Xb-8Cs" firstAttribute="top" secondItem="vgl-1i-Cxm" secondAttribute="top" id="kwc-1S-fEW"/>
                             <constraint firstItem="Uon-iV-aAW" firstAttribute="height" secondItem="yJ2-Lg-3o3" secondAttribute="height" id="p47-ll-c7l"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="kIb-sw-9gU" appends="YES" id="4iH-jl-xJQ"/>
+                            <outletCollection property="gestureRecognizers" destination="GvK-HH-NAc" appends="YES" id="LRa-Si-Ypd"/>
+                            <outletCollection property="gestureRecognizers" destination="9dD-uI-4bP" appends="YES" id="Tez-gA-skT"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Swipe" id="T8h-Qa-1vJ"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Phq-Ou-mkt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="kIb-sw-9gU">
+                    <connections>
+                        <action selector="viewWasSwiped:" destination="sIn-nk-EMI" id="KOA-hR-qOw"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="GvK-HH-NAc">
+                    <connections>
+                        <action selector="viewWasSwiped:" destination="sIn-nk-EMI" id="Ll7-g4-Rv7"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <tapGestureRecognizer id="9dD-uI-4bP">
+                    <connections>
+                        <action selector="viewWasTapped:" destination="sIn-nk-EMI" id="8pa-9f-Khw"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="622" y="-549"/>
         </scene>
@@ -80,7 +107,7 @@
                                     <frame key="frameInset" width="375" height="62"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RDn-pC-Nb1">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_img_ava_image" translatesAutoresizingMaskIntoConstraints="NO" id="RDn-pC-Nb1">
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="2oE-me-fRO"/>
                                                 <constraint firstAttribute="width" secondItem="RDn-pC-Nb1" secondAttribute="height" multiplier="1:1" id="Tv4-vn-q8Z"/>
@@ -170,7 +197,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance Content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfs-Fr-TtC">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unknown distance" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfs-Fr-TtC">
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -180,7 +207,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address Content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWq-dJ-bqW">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unknown address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWq-dJ-bqW">
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -193,7 +220,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TwW-fN-eM5">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unknown name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TwW-fN-eM5">
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -232,7 +259,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jBY-Xj-ab3" userLabel="Left View">
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yKr-kF-agP">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_img_ava_image" translatesAutoresizingMaskIntoConstraints="NO" id="yKr-kF-agP">
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="yKr-kF-agP" secondAttribute="height" multiplier="1:1" id="nVl-PI-u9D"/>
                                         </constraints>
@@ -245,7 +272,7 @@
                                     <constraint firstItem="yKr-kF-agP" firstAttribute="width" secondItem="jBY-Xj-ab3" secondAttribute="width" multiplier="0.8" id="hlu-AT-Wms"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desc content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LqF-5c-SUi">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LqF-5c-SUi">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="zgP-d0-tYH"/>
                                 </constraints>
@@ -304,7 +331,7 @@
         <scene sceneID="HDD-Us-leg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qMO-Gz-PyQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="More" id="rU6-s6-ghA"/>
+                    <tabBarItem key="tabBarItem" title="More" image="more_icon" id="rU6-s6-ghA"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IMC-tF-vYa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -323,7 +350,7 @@
         <scene sceneID="Lte-91-76Z">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xnN-OE-U79" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Swipe" id="ZnU-vE-zgS"/>
+                    <tabBarItem key="tabBarItem" title="Swipe" image="swipe_icon" id="ZnU-vE-zgS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="d3y-3B-xzI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -339,5 +366,10 @@
             <point key="canvasLocation" x="-303" y="-549"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="more_icon" width="50" height="50"/>
+        <image name="no_img_ava_image" width="200" height="200"/>
+        <image name="swipe_icon" width="50" height="50"/>
+    </resources>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

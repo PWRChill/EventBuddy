@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3FBF469D2512EDD205EDADAA /* Pods_EventBuddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD7ADBC4CB9EAE910574CEF /* Pods_EventBuddy.framework */; };
+		7A0225301DD3B4E000920408 /* TabBarAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A02252F1DD3B4E000920408 /* TabBarAssets.xcassets */; };
+		7A0225321DD3BD1000920408 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0225311DD3BD1000920408 /* GameViewController.swift */; };
+		7A0225341DD3BF9400920408 /* RealmAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0225331DD3BF9400920408 /* RealmAdapter.swift */; };
 		7A24889F1DBB853500616839 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A24889E1DBB853500616839 /* AppDelegate.swift */; };
 		7A2488A41DBB853500616839 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A2488A21DBB853500616839 /* Main.storyboard */; };
 		7A2488A61DBB853500616839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A2488A51DBB853500616839 /* Assets.xcassets */; };
@@ -23,6 +26,9 @@
 
 /* Begin PBXFileReference section */
 		25C83D2E373D79010E98A2F8 /* Pods-EventBuddy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventBuddy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EventBuddy/Pods-EventBuddy.debug.xcconfig"; sourceTree = "<group>"; };
+		7A02252F1DD3B4E000920408 /* TabBarAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TabBarAssets.xcassets; sourceTree = "<group>"; };
+		7A0225311DD3BD1000920408 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameViewController.swift; path = ViewControllers/GameViewController.swift; sourceTree = "<group>"; };
+		7A0225331DD3BF9400920408 /* RealmAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmAdapter.swift; path = Adapters/RealmAdapter.swift; sourceTree = "<group>"; };
 		7A24889B1DBB853500616839 /* EventBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A24889E1DBB853500616839 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A2488A31DBB853500616839 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,6 +68,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		7A0225351DD3C27300920408 /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				7A0225331DD3BF9400920408 /* RealmAdapter.swift */,
+			);
+			name = Adapters;
+			sourceTree = "<group>";
+		};
 		7A2488921DBB853500616839 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +103,7 @@
 				7A2488B01DBB85A100616839 /* Supporting files */,
 				7A2488B81DBB8FE000616839 /* Views */,
 				7AD947E21DBC0D980076714D /* Models */,
+				7A0225351DD3C27300920408 /* Adapters */,
 			);
 			path = EventBuddy;
 			sourceTree = "<group>";
@@ -115,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				7A2488B41DBB892100616839 /* MoreTableViewController.swift */,
+				7A0225311DD3BD1000920408 /* GameViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -123,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				7A2488A51DBB853500616839 /* Assets.xcassets */,
+				7A02252F1DD3B4E000920408 /* TabBarAssets.xcassets */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -223,6 +240,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A0225301DD3B4E000920408 /* TabBarAssets.xcassets in Resources */,
 				7A2488A91DBB853500616839 /* LaunchScreen.storyboard in Resources */,
 				7A2488A61DBB853500616839 /* Assets.xcassets in Resources */,
 				7A2488A41DBB853500616839 /* Main.storyboard in Resources */,
@@ -288,9 +306,11 @@
 				7A2488B71DBB8FCB00616839 /* MoreTableViewCell.swift in Sources */,
 				7A24889F1DBB853500616839 /* AppDelegate.swift in Sources */,
 				7A2488BD1DBBF81600616839 /* MoreHeaderTableViewCell.swift in Sources */,
+				7A0225321DD3BD1000920408 /* GameViewController.swift in Sources */,
 				7AD947E11DBC0D8F0076714D /* BaseModel.swift in Sources */,
 				7AD947E41DBC0E870076714D /* GroupModel.swift in Sources */,
 				7AD947E61DBC0F250076714D /* SingularObjectModel.swift in Sources */,
+				7A0225341DD3BF9400920408 /* RealmAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

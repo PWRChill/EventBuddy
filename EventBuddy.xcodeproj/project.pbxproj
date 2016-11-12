@@ -19,6 +19,8 @@
 		7A2488B71DBB8FCB00616839 /* MoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2488B61DBB8FCB00616839 /* MoreTableViewCell.swift */; };
 		7A2488BB1DBBF6EA00616839 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2488BA1DBBF6EA00616839 /* MapKit.framework */; };
 		7A2488BD1DBBF81600616839 /* MoreHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2488BC1DBBF81600616839 /* MoreHeaderTableViewCell.swift */; };
+		7A3CE0781DD77A260043B524 /* ScrollItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3CE0771DD77A260043B524 /* ScrollItemView.swift */; };
+		7A3CE07A1DD77A510043B524 /* ScrollItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A3CE0791DD77A510043B524 /* ScrollItemView.xib */; };
 		7AD947E11DBC0D8F0076714D /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD947E01DBC0D8F0076714D /* BaseModel.swift */; };
 		7AD947E41DBC0E870076714D /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD947E31DBC0E870076714D /* GroupModel.swift */; };
 		7AD947E61DBC0F250076714D /* SingularObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD947E51DBC0F250076714D /* SingularObjectModel.swift */; };
@@ -39,6 +41,8 @@
 		7A2488B61DBB8FCB00616839 /* MoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoreTableViewCell.swift; path = Views/MoreTableViewCell.swift; sourceTree = "<group>"; };
 		7A2488BA1DBBF6EA00616839 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7A2488BC1DBBF81600616839 /* MoreHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoreHeaderTableViewCell.swift; path = Views/MoreHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		7A3CE0771DD77A260043B524 /* ScrollItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScrollItemView.swift; path = Views/ScrollItemView.swift; sourceTree = "<group>"; };
+		7A3CE0791DD77A510043B524 /* ScrollItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ScrollItemView.xib; path = Views/ScrollItemView.xib; sourceTree = "<group>"; };
 		7AD947E01DBC0D8F0076714D /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseModel.swift; path = Models/BaseModel.swift; sourceTree = "<group>"; };
 		7AD947E31DBC0E870076714D /* GroupModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupModel.swift; path = Models/GroupModel.swift; sourceTree = "<group>"; };
 		7AD947E51DBC0F250076714D /* SingularObjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SingularObjectModel.swift; path = Models/SingularObjectModel.swift; sourceTree = "<group>"; };
@@ -149,6 +153,8 @@
 			children = (
 				7A2488B61DBB8FCB00616839 /* MoreTableViewCell.swift */,
 				7A2488BC1DBBF81600616839 /* MoreHeaderTableViewCell.swift */,
+				7A3CE0771DD77A260043B524 /* ScrollItemView.swift */,
+				7A3CE0791DD77A510043B524 /* ScrollItemView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -243,6 +249,7 @@
 				7A0225301DD3B4E000920408 /* TabBarAssets.xcassets in Resources */,
 				7A2488A91DBB853500616839 /* LaunchScreen.storyboard in Resources */,
 				7A2488A61DBB853500616839 /* Assets.xcassets in Resources */,
+				7A3CE07A1DD77A510043B524 /* ScrollItemView.xib in Resources */,
 				7A2488A41DBB853500616839 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,6 +311,7 @@
 			files = (
 				7A2488B51DBB892100616839 /* MoreTableViewController.swift in Sources */,
 				7A2488B71DBB8FCB00616839 /* MoreTableViewCell.swift in Sources */,
+				7A3CE0781DD77A260043B524 /* ScrollItemView.swift in Sources */,
 				7A24889F1DBB853500616839 /* AppDelegate.swift in Sources */,
 				7A2488BD1DBBF81600616839 /* MoreHeaderTableViewCell.swift in Sources */,
 				7A0225321DD3BD1000920408 /* GameViewController.swift in Sources */,

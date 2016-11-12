@@ -11,7 +11,7 @@ import RealmSwift
 
 class GroupModel: BaseModel {
     
-    dynamic var name: String?
+    dynamic var name: String!
     let models = List<SingularObjectModel>()
     
     static func groupModel(name: String, models: List<SingularObjectModel>?) -> GroupModel {

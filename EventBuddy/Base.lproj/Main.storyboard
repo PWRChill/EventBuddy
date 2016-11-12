@@ -21,20 +21,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vSS-v0-LlH"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSS-v0-LlH">
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="W5X-qg-3Pj" appends="YES" id="h3D-Da-nCw"/>
+                                </connections>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="vSS-v0-LlH" secondAttribute="trailing" id="6A4-xw-I1e"/>
                             <constraint firstItem="vSS-v0-LlH" firstAttribute="leading" secondItem="vgl-1i-Cxm" secondAttribute="leading" id="GFI-PZ-LRW"/>
-                            <constraint firstItem="vSS-v0-LlH" firstAttribute="top" secondItem="78v-9G-NyS" secondAttribute="bottom" id="VCb-LP-2Hx"/>
-                            <constraint firstItem="ssN-Lc-XZo" firstAttribute="top" secondItem="vSS-v0-LlH" secondAttribute="bottom" id="zfb-Vo-ZAB"/>
+                            <constraint firstItem="vSS-v0-LlH" firstAttribute="top" secondItem="78v-9G-NyS" secondAttribute="bottom" id="h3g-us-GaS"/>
+                            <constraint firstAttribute="bottom" secondItem="vSS-v0-LlH" secondAttribute="bottom" id="p2d-Cw-9Nz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Swipe" id="T8h-Qa-1vJ"/>
+                    <connections>
+                        <outlet property="scrollView" destination="vSS-v0-LlH" id="wm5-xE-7fv"/>
+                        <segue destination="drS-Dm-jt0" kind="show" identifier="GameToDetailSegue" id="ZYs-Vm-vii"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Phq-Ou-mkt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="W5X-qg-3Pj">
+                    <connections>
+                        <action selector="scrollViewWasTapped:" destination="sIn-nk-EMI" id="HpW-CT-CmU"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="621.60000000000002" y="-549.17541229385313"/>
         </scene>
@@ -77,7 +91,6 @@
                                 <connections>
                                     <outlet property="placeName" destination="AF7-gS-m4w" id="7dD-oH-7En"/>
                                     <outlet property="placePicture" destination="RDn-pC-Nb1" id="kv1-aw-xOb"/>
-                                    <segue destination="drS-Dm-jt0" kind="show" id="k7c-gb-QKK"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MoreHeaderTableViewCell" id="Mcy-7O-bFo" customClass="MoreHeaderTableViewCell" customModule="EventBuddy" customModuleProvider="target">
@@ -114,6 +127,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="More" id="AuQ-8s-s3f"/>
+                    <connections>
+                        <segue destination="drS-Dm-jt0" kind="show" identifier="MoreToDetailSegue" id="xAd-fn-gGY"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5YR-S7-fF3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -122,7 +138,7 @@
         <!--Details-->
         <scene sceneID="KbC-EH-OOw">
             <objects>
-                <viewController id="drS-Dm-jt0" sceneMemberID="viewController">
+                <viewController id="drS-Dm-jt0" customClass="DetailViewController" customModule="EventBuddy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="soZ-9R-zum"/>
                         <viewControllerLayoutGuide type="bottom" id="gqH-P8-hCK"/>
@@ -251,10 +267,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Details" id="6gH-6j-3c6"/>
+                    <connections>
+                        <outlet property="addressLabel" destination="cWq-dJ-bqW" id="Ol1-TD-vjg"/>
+                        <outlet property="descriptionLabel" destination="LqF-5c-SUi" id="DkR-vB-lvE"/>
+                        <outlet property="distanceLabel" destination="qfs-Fr-TtC" id="VNT-DV-yh1"/>
+                        <outlet property="mapView" destination="9XF-l7-zK9" id="qfT-OD-sue"/>
+                        <outlet property="nameLabel" destination="TwW-fN-eM5" id="zla-Gf-NJv"/>
+                        <outlet property="pictureImageView" destination="yKr-kF-agP" id="FzC-re-JhQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uuL-5Z-i65" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1589.5999999999999" y="106.59670164917542"/>
+            <point key="canvasLocation" x="1724" y="-258"/>
         </scene>
         <!--Splash Screen View Controller-->
         <scene sceneID="OQU-gi-GWT">
@@ -351,5 +375,8 @@
         <image name="no_img_ava_image" width="200" height="200"/>
         <image name="swipe_icon" width="50" height="50"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZYs-Vm-vii"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

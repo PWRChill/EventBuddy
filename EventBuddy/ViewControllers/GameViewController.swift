@@ -10,45 +10,65 @@ import UIKit
 
 class GameViewController: UIViewController {
 
-    @IBAction func viewWasSwiped(_ sender: UISwipeGestureRecognizer) {
+    @IBOutlet var scrollView: UIScrollView!
+    
+    @IBAction func scrollViewWasTapped(_ sender: UITapGestureRecognizer) {
+    
+        let items = Array(RealmAdapter.fetchModels(GroupModel.self).first!.models)
+        let index = sender.location(in: self.scrollView).x / self.scrollView.frame.width
         
-        switch sender.direction {
+        self.selectedModel = items[Int(index)]
+        
+    }
+    
+    var selectedModel: SingularObjectModel? {
+        didSet {
+            self.performSegue(withIdentifier: Storyboard.gameToDetailSegue, sender: self)
+        }
+    }
+    
+    private struct Storyboard {
+        static let gameToDetailSegue = "GameToDetailSegue"
+    }
+    
+    override func viewDidLayoutSubviews() {
+        self.setupScrollView()
+    }
+
+    private func setupScrollView() {
+        
+        let items = Array(RealmAdapter.fetchModels(GroupModel.self).first!.models)
+        let scrollViewSize = self.scrollView.bounds.size
+        let size = CGSize(
+            width: scrollViewSize.width,
+            height: (self.tabBarController?.tabBar.frame.origin.y)! -
+                    (self.navigationController?.navigationBar.frame.origin.y)!)
+        
+        for (index,item) in items.enumerated() {
             
-        case UISwipeGestureRecognizerDirection.right:
-            print("right swipe")
-        case UISwipeGestureRecognizerDirection.left:
-            print("left swipe")
-        default:
-            print("Unknown direction")
+            let scrollItem = ScrollItemView.scrollItemView(model: item)
+            scrollItem.frame = CGRect(origin: CGPoint(x: CGFloat(index)*size.width, y: 0), size: size)
+            scrollView.addSubview(scrollItem)
+            
         }
         
+        scrollView.contentSize = CGSize(width: size.width*CGFloat(items.count), height: size.height)
+        scrollView.contentInset = .zero
+        
     }
     
-    @IBAction func viewWasTapped(_ sender: UITapGestureRecognizer) {
-        print("tap")
-    }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        print(segue.identifier)
+        guard let id = segue.identifier else { return }
+        
+        switch id {
+        case Storyboard.gameToDetailSegue:
+            if let dvc = segue.destination as? DetailViewController {
+                dvc.model = self.selectedModel
+            }
+        default:
+            print("unknown id")
+        }
     }
-    */
 
 }

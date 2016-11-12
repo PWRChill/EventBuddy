@@ -13,7 +13,11 @@ class RealmAdapter {
     
     static let realm = try! Realm()
     
-    static func saveModel<T: BaseModel>(model: T) {
+    static var isDataStorred: Bool {
+        return !self.fetchModels(GroupModel.self).isEmpty
+    }
+    
+    static func save<T: BaseModel>(model: T) {
         try! realm.write {
             realm.add(model)
         }
@@ -42,7 +46,28 @@ class RealmAdapter {
     }
     
     
-    
-
+    static func setupData(handler: () -> Void) {
+        
+        let foods = GroupModel.groupModel(name: "Food", models: nil)
+        foods.add(model: SingularObjectModel.singularObjectModel(name: "McDonalds", image: nil, address: nil, desc: nil, lat: nil, lon: nil))
+        foods.add(model: SingularObjectModel.singularObjectModel(name: "KFC", image: nil, address: nil, desc: nil, lat: nil, lon: nil))
+        foods.add(model: SingularObjectModel.singularObjectModel(name: "Orient Express", image: nil, address: nil, desc: nil, lat: nil, lon: nil))
+        foods.add(model: SingularObjectModel.singularObjectModel(name: "Sevi Kebab", image: nil, address: nil, desc: nil, lat: nil, lon: nil))
+        foods.add(model: SingularObjectModel.singularObjectModel(name: "Sevi Kepap", image: nil, address: nil, desc: nil, lat: nil, lon: nil))
+        RealmAdapter.save(model: foods)
+        
+        let entertainments = GroupModel.groupModel(name: "Entertainment", models: nil)
+        entertainments.add(model: SingularObjectModel.singularObjectModel(name: "Cinema City", image: nil, address: nil, desc: nil, lat: nil, lon: nil))
+        entertainments.add(model: SingularObjectModel.singularObjectModel(name: "Multikino", image: nil, address: nil, desc: nil, lat: nil, lon: nil))
+        entertainments.add(model: SingularObjectModel.singularObjectModel(name: "Teatr Wspolczesny", image: nil, address: nil, desc: nil, lat: nil, lon: nil))
+        RealmAdapter.save(model: entertainments)
+        
+        let sports = GroupModel.groupModel(name: "Sport", models: nil)
+        sports.add(model: SingularObjectModel.singularObjectModel(name: "Running", image: nil, address: nil, desc: nil, lat: nil, lon: nil))
+        sports.add(model: SingularObjectModel.singularObjectModel(name: "Swimming pool", image: nil, address: nil, desc: nil, lat: nil, lon: nil))
+        RealmAdapter.save(model: sports)
+        
+        handler()
+    }
     
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class MoreTableViewController: UITableViewController {
 
-    var data = [String:[String]]()
+    var data = [GroupModel]()
     var selectedSection: Int? {
         didSet {
          
@@ -25,48 +25,27 @@ class MoreTableViewController: UITableViewController {
         }
     }
     
-    private func getSection(number: Int) -> [String] {
+    private func getSection(number: Int) -> [SingularObjectModel] {
         
-        var returnArray = [String]()
-        
-        switch number {
-        case 0:
-            returnArray += self.data["Food"] ?? [String]()
-        case 1:
-            returnArray += self.data["Entertainment"] ?? [String]()
-        case 2:
-            returnArray += self.data["Sport"] ?? [String]()
-        default:
-            break
-        }
-
-        return returnArray
+        return Array(self.data[number].models)
     }
-    
-    private var sections: [String] {
 
-        return ["Food","Entertainment","Sport"]
-    }
-    
     private func getSectionNumberFor(sectionTitle: String) -> Int? {
         
-        for (index,section) in self.sections.enumerated() {
-            if section == sectionTitle {
+        for (index,groupModel) in self.data.enumerated() {
+            if groupModel.name == sectionTitle {
                 return index
             }
         }
-        
+
         return nil
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.data["Food"] = ["McDonald", "KFC", "Orient Express", "Sevi Kebab", "Sevi Kepap"]
-
-        self.data["Entertainment"] = ["Cinema City", "Multikino", "Teatr Wspolczesny"]
-        self.data["Sport"] = ["Running", "Swimming pool"]
+        
+        self.data = Array(RealmAdapter.fetchModels(GroupModel.self))
         
     }
 
@@ -74,7 +53,7 @@ class MoreTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         
-        return self.sections.count
+        return self.data.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -91,7 +70,7 @@ class MoreTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MoreTableViewCell", for: indexPath) as? MoreTableViewCell
 
-        cell?.placeName.text = self.getSection(number: indexPath.section)[indexPath.row]
+        cell?.placeName.text = self.getSection(number: indexPath.section)[indexPath.row].name
 
         return cell ?? MoreTableViewCell()
     }
@@ -99,7 +78,7 @@ class MoreTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MoreHeaderTableViewCell") as? MoreHeaderTableViewCell
         
-        cell?.sectionTitleButton.setTitle(self.sections[section], for: .normal)
+        cell?.sectionTitleButton.setTitle(self.data[section].name, for: .normal)
         
         return cell
     }

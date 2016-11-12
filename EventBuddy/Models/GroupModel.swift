@@ -26,7 +26,8 @@ class GroupModel: BaseModel {
         return groupModel
     }
     
-    
-    
+    func add(model sm: SingularObjectModel) {
+        self.models.append(sm)
+    }
     
 }

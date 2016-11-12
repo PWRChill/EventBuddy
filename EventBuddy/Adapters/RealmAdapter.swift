@@ -21,8 +21,12 @@ class RealmAdapter {
     
     static func fetchModels<T: BaseModel>(_ forClass: T.Type, filter: String? = nil) -> Results<T> {
 
-        return realm.objects(forClass).filter(filter ?? "")
-
+        if let filter = filter {
+            return realm.objects(forClass).filter(filter)
+        } else {
+            return realm.objects(forClass)
+        }
+        
     }
     
     static func addSingularOMToGroup(with name: String, model: SingularObjectModel) {

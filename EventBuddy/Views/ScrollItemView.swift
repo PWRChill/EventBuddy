@@ -22,9 +22,9 @@ class ScrollItemView: UIView {
         
         let scrollItem = ScrollItemView.instanceFromNib() as! ScrollItemView
         
-        if let image = model.image {
+       /* if let image = model.image {
             scrollItem.pictureImageView.image = UIImage(named: image)
-        }
+        }*/
         
         scrollItem.nameLabel.text = model.name
         scrollItem.addressLabel.text = model.address

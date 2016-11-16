@@ -12,13 +12,18 @@ class SplashScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
         if !RealmAdapter.isDataStorred {
             self.setupAllData {
                 self.performSegueToTabBarController()
             }
         } else {
-            self.performSegueToTabBarController()
+            RealmAdapter.deleteAll()
+            self.setupAllData {
+                self.performSegueToTabBarController()
+            }
         }
     
     }

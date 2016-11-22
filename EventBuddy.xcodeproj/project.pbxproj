@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		19B2CE5C1DDA839E0075473D /* MapObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B2CE5B1DDA839E0075473D /* MapObject.swift */; };
+		19EDD99F1DDC6C6C009F8046 /* UIImage+ScaleToSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EDD99E1DDC6C6C009F8046 /* UIImage+ScaleToSize.swift */; };
 		3FBF469D2512EDD205EDADAA /* Pods_EventBuddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD7ADBC4CB9EAE910574CEF /* Pods_EventBuddy.framework */; };
 		7A0225301DD3B4E000920408 /* TabBarAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A02252F1DD3B4E000920408 /* TabBarAssets.xcassets */; };
 		7A0225321DD3BD1000920408 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0225311DD3BD1000920408 /* GameViewController.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		19B2CE5B1DDA839E0075473D /* MapObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObject.swift; sourceTree = "<group>"; };
+		19EDD99E1DDC6C6C009F8046 /* UIImage+ScaleToSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+ScaleToSize.swift"; path = "Extensions/UIImage+ScaleToSize.swift"; sourceTree = "<group>"; };
 		25C83D2E373D79010E98A2F8 /* Pods-EventBuddy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventBuddy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EventBuddy/Pods-EventBuddy.debug.xcconfig"; sourceTree = "<group>"; };
 		7A02252F1DD3B4E000920408 /* TabBarAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TabBarAssets.xcassets; sourceTree = "<group>"; };
 		7A0225311DD3BD1000920408 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameViewController.swift; path = ViewControllers/GameViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +73,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19EDD99D1DDC6C45009F8046 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				19EDD99E1DDC6C6C009F8046 /* UIImage+ScaleToSize.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		3D882EC1790A291C0C7921FE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +119,7 @@
 		7A24889D1DBB853500616839 /* EventBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				19EDD99D1DDC6C45009F8046 /* Extensions */,
 				7A2488B31DBB85D000616839 /* Assets */,
 				7A2488B21DBB85C100616839 /* ViewControllers */,
 				7A2488B11DBB85B300616839 /* StoryBoards */,
@@ -327,6 +338,7 @@
 				19B2CE5C1DDA839E0075473D /* MapObject.swift in Sources */,
 				7A3CE0781DD77A260043B524 /* ScrollItemView.swift in Sources */,
 				7A24889F1DBB853500616839 /* AppDelegate.swift in Sources */,
+				19EDD99F1DDC6C6C009F8046 /* UIImage+ScaleToSize.swift in Sources */,
 				7A3CE07E1DD78C930043B524 /* TabBarViewController.swift in Sources */,
 				7A2488BD1DBBF81600616839 /* MoreHeaderTableViewCell.swift in Sources */,
 				7A3CE07C1DD782430043B524 /* SplashScreenViewController.swift in Sources */,

@@ -11,13 +11,7 @@ import UIKit
 class MoreTableViewController: UITableViewController {
 
     @IBOutlet var searchBar: UISearchBar!
-    
-    var isSearchOn = false {
-        didSet {
-            self.tableView.reloadData()
-        }
-    }
-    
+
     var data = [GroupModel]()
     
     var selectedSection: Int? {
@@ -138,12 +132,8 @@ class MoreTableViewController: UITableViewController {
 extension MoreTableViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText != "" {
-            self.search(for: searchText)
-            self.isSearchOn = true
-        } else {
-            self.isSearchOn = false
-        }
+        
+        self.search(for: searchText)
         
     }
     

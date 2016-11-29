@@ -148,7 +148,14 @@ extension MoreTableViewController: UISearchBarDelegate {
     }
     
     private func search(for text: String) {
-        print("search \(text)")
+        
+        if text == "" {
+            self.data = Array(RealmAdapter.fetchModels(GroupModel.self))
+        } else {
+            self.data = RealmAdapter.getData(for: text)
+        }
+        
+        self.tableView.reloadData()
     }
     
 }

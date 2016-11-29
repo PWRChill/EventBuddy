@@ -16,14 +16,17 @@ class SingularObjectModel: BaseModel {
     dynamic var address: String?
     dynamic var desc: String?
     
+    let keywords = List<RLMString>()
+    
     var lat = RealmOptional<Double>()
     var lon = RealmOptional<Double>()
     var rank = RealmOptional<Double>()
     
     static func singularObjectModel(name: String, image: String?, address: String?, desc: String?,
-                                    lat: Double?, lon: Double,rank: Double) -> SingularObjectModel {
+                                    lat: Double?, lon: Double?, rank: Double?, keywords: List<RLMString>? = nil) -> SingularObjectModel {
         
         let singularObjectModel = SingularObjectModel()
+        
         singularObjectModel.name = name
         singularObjectModel.image = image
         singularObjectModel.address = address
@@ -32,7 +35,9 @@ class SingularObjectModel: BaseModel {
         singularObjectModel.lon.value = lon
         singularObjectModel.rank.value = rank
 
-
+        if let keywords = keywords {
+            singularObjectModel.keywords.append(objectsIn: keywords)
+        }
 
         return singularObjectModel
     }

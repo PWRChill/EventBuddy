@@ -46,18 +46,53 @@ class DetailViewController: UIViewController {
 
     private func setup(model: SingularObjectModel) {
         print(model)
-        self.nameLabel.text = model.name ?? "Unknown name"
-        self.addressLabel.text = model.address ?? "Unknown address"
-        self.descriptionLabel.text = model.desc ?? "No description"
-        self.pictureImageView.image = UIImage(named: model.image ?? "no_img_ava_image")
+        
+        let name = String.getName(for: model.name)
+        let address = String.getAddress(for: model.address)
+        let desc = String.getDescription(for: model.desc)
+        let img = UIImage.getPicture(for: model.image)
+        
+        self.nameLabel.text = name
+        self.addressLabel.text = address
+        self.descriptionLabel.text = desc
+        self.pictureImageView.image = img
+        
         if let latitude = model.lat.value,
             let longitude = model.lon.value {
             let initialLocation = CLLocation(latitude: latitude, longitude: longitude)
-            centerMapOnLocation(location: initialLocation)
-            let artwork = Artwork(title: model.name ?? "Nothing",
-                                  locationName: model.address ?? "Nothing",
+            self.centerMapOnLocation(location: mapView.userLocation.location ?? initialLocation)
+            let artwork = MapObjectModel(title: name,
+                                  locationName: address,
                                   coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
             mapView.addAnnotation(artwork)
         }
+
     }
+    
 }
+
+private extension UIImage {
+    
+    static func getPicture(for name: String?) -> UIImage {
+        return UIImage(named: name ?? "no_img_ava_image")!
+    }
+    
+}
+
+private extension String {
+    
+    static func getName(for text: String?) -> String {
+        return text ?? "Unknown name"
+    }
+
+    static func getAddress(for text: String?) -> String {
+        return text ?? "Unknown address"
+    }
+    
+    static func getDescription(for text: String?) -> String {
+        return text ?? "No description"
+    }
+    
+}
+
+

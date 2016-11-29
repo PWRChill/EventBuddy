@@ -1,6 +1,6 @@
 import MapKit
 
-class Artwork: NSObject, MKAnnotation {
+class MapObjectModel: NSObject, MKAnnotation {
     let title: String?
     let locationName: String
     let coordinate: CLLocationCoordinate2D

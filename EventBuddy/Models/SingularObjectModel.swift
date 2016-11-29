@@ -42,5 +42,20 @@ class SingularObjectModel: BaseModel {
         return singularObjectModel
     }
     
+    func isRelated(to text: String) -> Bool {
+        
+        guard let name = self.name,
+            name.lowercased().contains(text.lowercased()) == false else {
+            return true
+        }
+        
+        for keyword in self.keywords {
+            if keyword.value.lowercased().contains(text.lowercased()) {
+                return true
+            }
+        }
+        
+        return false
+    }
     
 }

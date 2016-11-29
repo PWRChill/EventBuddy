@@ -30,4 +30,18 @@ class GroupModel: BaseModel {
         self.models.append(sm)
     }
     
+    func applySearch(using text: String) -> GroupModel? {
+        let groupModel = GroupModel.groupModel(name: self.name, models: nil)
+        
+        for model in self.models {
+            if model.isRelated(to: text) {
+                groupModel.add(model: model)
+            }
+        }
+        
+        if groupModel.models.count == 0 {
+            return nil
+        }
+        return groupModel
+    }
 }

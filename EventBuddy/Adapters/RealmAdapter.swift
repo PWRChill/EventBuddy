@@ -111,4 +111,19 @@ class RealmAdapter {
         handler()
     }
     
+    
+    static func getData(for text: String) -> [GroupModel] {
+        
+        var results = [GroupModel]()
+
+        for groupModel in Array(RealmAdapter.fetchModels(GroupModel.self)) {
+            if let searchResult = groupModel.applySearch(using: text) {
+                results.append(searchResult)
+            }
+
+        }
+        
+        return results
+    }
+    
 }

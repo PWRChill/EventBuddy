@@ -54,7 +54,6 @@ class RealmAdapter {
     static func setupData(handler: () -> Void) {
         
         let foods = GroupModel.groupModel(name: "Food", models: nil)
-
         foods.add(model: SingularObjectModel.singularObjectModel(name: "McDonalds", image: "McDonald's", address: "plac Grunwaldzki 22, 50-384 Wrocław", desc: nil, lat: 51.112450, lon: 17.059697, rank: 0))
         foods.add(model: SingularObjectModel.singularObjectModel(name: "McDonalds", image: "McDonald's", address: "plac Grunwaldzki 34, 50-001 Wrocław", desc: nil, lat: 51.114623, lon: 17.069643, rank: 0))
         foods.add(model: SingularObjectModel.singularObjectModel(name: "McDonalds", image: "McDonald's", address: "Galeria Dominikańska, plac Dominikański 3, 11-400 Wrocław", desc: nil, lat: 51.108359, lon: 17.040417, rank: 0))
@@ -76,30 +75,14 @@ class RealmAdapter {
         foods.add(model: SingularObjectModel.singularObjectModel(name: "Machina Organika", image: "MachinaOrganika", address: " ul. Ruska 19", desc: nil, lat: 51.110550, lon: 17.026053, rank: 0))
         foods.add(model: SingularObjectModel.singularObjectModel(name: "Aquarelle", image: "Aquarelle", address: "ul. Purkyniego 10 (Radisson Blu Hotel Wroclaw)", desc: nil, lat: 51.110898, lon: 17.044176, rank: 0))
         foods.add(model: SingularObjectModel.singularObjectModel(name: "Bernard", image: "Bernard", address: "Rynek 35", desc: nil, lat: 51.110003, lon: 17.033414, rank: 0))
-
-
-        
-
-
-
-
-
-
-
-        
-        
-        
-        
-        
         foods.add(model: SingularObjectModel.singularObjectModel(name: "Orient Express", image: nil, address: "plac Grunwaldzki 22, 50-384 Wrocław", desc: nil, lat: 51.112450, lon: 17.059697, rank: 0))
         foods.add(model: SingularObjectModel.singularObjectModel(name: "Sevi Kebab", image: nil, address: nil, desc: nil, lat: 0, lon: 0, rank: 0))
         foods.add(model: SingularObjectModel.singularObjectModel(name: "Sevi Kepap", image: nil, address: nil, desc: nil, lat: 0, lon: 0, rank: 0))
         RealmAdapter.save(model: foods)
         
         let entertainments = GroupModel.groupModel(name: "Entertainment", models: nil)
-        entertainments.add(model: SingularObjectModel.singularObjectModel(name: "Cinema City", image: nil, address: nil, desc: nil, lat: 0, lon: 0, rank: 0))
-        entertainments.add(model: SingularObjectModel.singularObjectModel(name: "Multikino", image: nil, address: nil, desc: nil, lat: 0, lon: 0, rank: 0))
-        entertainments.add(model: SingularObjectModel.singularObjectModel(name: "Teatr Wspolczesny", image: nil, address: nil, desc: nil, lat: 0, lon: 0, rank: 0))
+        entertainments.add(model: SingularObjectModel.singularObjectModel(name: "Multikino Pasaż Grunwaldzki", image: "MultikinoPasazGrunwaldzki", address: "plac Grunwaldzki 22, 50-363 Wrocław", desc: nil, lat: 51.112686, lon: 17.059022, rank: 0))
+        entertainments.add(model: SingularObjectModel.singularObjectModel(name: "Kino Cinema City Korona", image: "MultikinoPasazGrunwaldzki", address: "plac Grunwaldzki 22, 50-363 Wrocław", desc: nil, lat: 51.112686, lon: 17.059022, rank: 0))
         RealmAdapter.save(model: entertainments)
         
         let sports = GroupModel.groupModel(name: "Sport", models: nil)
@@ -117,17 +100,12 @@ class RealmAdapter {
         sports.add(model: SingularObjectModel.singularObjectModel(name: "Klub Bodyfit Fitness & Wellness - Centrum Krzyki", image: "KlubBodyfitFitnessWellnessCentrumKrzyki", address: "Bernarda Pretficza 37, 11-400 Wrocław", desc: "gym", lat: 51.091855, lon: 17.006956, rank: 0))
         sports.add(model: SingularObjectModel.singularObjectModel(name: "Klub Fitness Academy Wrocław Arkady", image: "KlubFitnessAcademyWrocławStareMiastoGaleria", address: "Powstańców Śląskich 2, 53-333 Wrocław", desc: "gym", lat: 51.099323, lon: 17.028845, rank: 0))
         sports.add(model: SingularObjectModel.singularObjectModel(name: "Euro Mart", image: "EuroMart", address: "Boczna 12, 50-001 Wrocław", desc: "gym", lat: 51.092739, lon: 17.045323, rank: 0))
-        
          sports.add(model: SingularObjectModel.singularObjectModel(name: "Fitness Academy Jupiter", image: "KlubFitnessAcademyWrocławStareMiastoGaleria", address: "Żegiestowska 11, 50-542 Wrocław", desc: "gym", lat: 51.082326, lon: 17.038825, rank: 0))
         sports.add(model: SingularObjectModel.singularObjectModel(name: "Music & Motion Pole Dance | Szarfy | Taniec na kole Wrocław", image: "MusicMotionPoleDance", address: "Nyska 59, 50-505 Wrocław", desc: "gym", lat: 51.087236, lon: 17.053927, rank: 0))
         sports.add(model: SingularObjectModel.singularObjectModel(name: "Wrocławski Park Wodny S.A.", image: "WroclawskiParkWodny", address: "Borowska 99, 50-558 Wrocław", desc: "gym", lat: 51.090943, lon: 17.032314, rank: 0))
         sports.add(model: SingularObjectModel.singularObjectModel(name: "Centrum Treningowe Spartan WCT5 Wrocław", image: "CentrumTreningoweSpartan", address: "Spiska 1, 50-562 Wrocław", desc: "gym", lat: 51.085267, lon: 17.031267, rank: 0))
         sports.add(model: SingularObjectModel.singularObjectModel(name: "Fitness24Seven", image: "Fitness24Seven", address: "Ślężna 130, 53-111 Wrocław", desc: "gym", lat: 51.080984, lon: 17.023525, rank: 0))
         sports.add(model: SingularObjectModel.singularObjectModel(name: "Sport Klub Tęcza", image: "TeczaSportKlub", address: "Tęczowa 79, 11-400 Wrocław", desc: "gym", lat: 51.104922, lon: 17.010306, rank: 0))
-        
-        
-        
-        
         RealmAdapter.save(model: sports)
         
         handler()

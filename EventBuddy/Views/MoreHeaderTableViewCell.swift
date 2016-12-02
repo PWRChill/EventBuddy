@@ -11,5 +11,15 @@ import UIKit
 class MoreHeaderTableViewCell: UITableViewCell {
     
     @IBOutlet var sectionTitleButton: UIButton!
+    @IBOutlet var arrowImageView: UIImageView!
    
+    var isOppened = false {
+        didSet {
+            if self.isOppened {
+                self.arrowImageView.image = UIImage(named: "arrow_up")
+            } else {
+                self.arrowImageView.image = UIImage(named: "arrow_down")
+            }
+        }
+    }
 }

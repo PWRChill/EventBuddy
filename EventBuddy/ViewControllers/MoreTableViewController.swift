@@ -60,6 +60,7 @@ class MoreTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.searchBar.delegate = self
         self.data = Array(RealmAdapter.fetchModels(GroupModel.self))
         
     }
@@ -94,6 +95,10 @@ class MoreTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: Storyboard.header) as? MoreHeaderTableViewCell
         
         cell?.sectionTitleButton.setTitle(self.data[section].name, for: .normal)
+        
+        if let selectedSection = self.selectedSection {
+            cell?.isOppened = selectedSection == section
+        }
         
         return cell
     }
@@ -131,6 +136,12 @@ class MoreTableViewController: UITableViewController {
 
 extension MoreTableViewController: UISearchBarDelegate {
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.text = ""
+        self.search(for: "")
+        self.searchBar.resignFirstResponder()
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         self.search(for: searchText)
@@ -148,4 +159,7 @@ extension MoreTableViewController: UISearchBarDelegate {
         self.tableView.reloadData()
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
 }

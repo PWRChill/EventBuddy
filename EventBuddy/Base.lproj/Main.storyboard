@@ -60,7 +60,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="fcL-Av-8kq">
+                        <searchBar key="tableHeaderView" contentMode="redraw" showsCancelButton="YES" id="fcL-Av-8kq">
                             <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
@@ -73,7 +73,7 @@
                                 <rect key="frame" x="0.0" y="136" width="375" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b76-59-mLY" id="eDA-ei-sPh">
-                                    <frame key="frameInset" width="375" height="61"/>
+                                    <frame key="frameInset" width="375" height="62"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_img_ava_image" translatesAutoresizingMaskIntoConstraints="NO" id="RDn-pC-Nb1">
@@ -105,7 +105,7 @@
                                 <rect key="frame" x="0.0" y="198" width="375" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mcy-7O-bFo" id="llD-rR-Ogd">
-                                    <frame key="frameInset" width="375" height="61"/>
+                                    <frame key="frameInset" width="375" height="62"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moB-86-I9I">
@@ -114,17 +114,26 @@
                                                 <action selector="sectionHeaderWasPressed:" destination="iSA-1z-9sJ" eventType="touchUpInside" id="aYq-Ty-uAk"/>
                                             </connections>
                                         </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="B81-0r-lTc">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="hG7-bn-2Xl"/>
+                                                <constraint firstAttribute="width" constant="50" id="sdk-Hc-1LN"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="B81-0r-lTc" firstAttribute="centerY" secondItem="moB-86-I9I" secondAttribute="centerY" id="77f-08-UxI"/>
                                         <constraint firstItem="moB-86-I9I" firstAttribute="top" secondItem="llD-rR-Ogd" secondAttribute="top" id="C9e-3V-t1l"/>
                                         <constraint firstAttribute="bottom" secondItem="moB-86-I9I" secondAttribute="bottom" id="Kk0-Cn-4Yp"/>
                                         <constraint firstItem="moB-86-I9I" firstAttribute="leading" secondItem="llD-rR-Ogd" secondAttribute="leading" id="StO-Tt-Zhw"/>
+                                        <constraint firstAttribute="trailing" secondItem="B81-0r-lTc" secondAttribute="trailing" constant="10" id="lcv-94-RjU"/>
                                         <constraint firstAttribute="trailing" secondItem="moB-86-I9I" secondAttribute="trailing" id="oGD-rX-ejs"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <connections>
+                                    <outlet property="arrowImageView" destination="B81-0r-lTc" id="tlo-uh-HI8"/>
                                     <outlet property="sectionTitleButton" destination="moB-86-I9I" id="JXz-aS-VWv"/>
                                 </connections>
                             </tableViewCell>
@@ -142,7 +151,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5YR-S7-fF3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="622" y="107"/>
+            <point key="canvasLocation" x="621.60000000000002" y="106.59670164917542"/>
         </scene>
         <!--Details-->
         <scene sceneID="KbC-EH-OOw">
@@ -161,7 +170,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9XF-l7-zK9"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9XF-l7-zK9">
+                                <gestureRecognizers/>
+                            </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aiB-rj-8su" userLabel="Right View">
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Alt-Yx-3fE">
@@ -275,7 +286,9 @@
                             <constraint firstItem="jBY-Xj-ab3" firstAttribute="width" secondItem="wju-E0-46f" secondAttribute="width" multiplier="0.4" id="uRn-bG-pWn"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Details" id="6gH-6j-3c6"/>
+                    <navigationItem key="navigationItem" title="Details" id="6gH-6j-3c6">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="nkT-sr-o4j"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="addressLabel" destination="cWq-dJ-bqW" id="Ol1-TD-vjg"/>
                         <outlet property="descriptionLabel" destination="LqF-5c-SUi" id="DkR-vB-lvE"/>
@@ -380,6 +393,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow_down" width="512" height="512"/>
         <image name="more_icon" width="50" height="50"/>
         <image name="no_img_ava_image" width="200" height="200"/>
         <image name="swipe_icon" width="50" height="50"/>

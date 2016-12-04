@@ -37,7 +37,9 @@
                             <constraint firstAttribute="bottom" secondItem="vSS-v0-LlH" secondAttribute="bottom" id="p2d-Cw-9Nz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Swipe" id="T8h-Qa-1vJ"/>
+                    <navigationItem key="navigationItem" title="Swipe" id="T8h-Qa-1vJ">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="hqN-aY-O07"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="scrollView" destination="vSS-v0-LlH" id="wm5-xE-7fv"/>
                         <segue destination="drS-Dm-jt0" kind="show" identifier="GameToDetailSegue" id="ZYs-Vm-vii"/>
@@ -73,7 +75,7 @@
                                 <rect key="frame" x="0.0" y="136" width="375" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b76-59-mLY" id="eDA-ei-sPh">
-                                    <frame key="frameInset" width="375" height="62"/>
+                                    <frame key="frameInset" width="375" height="61"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_img_ava_image" translatesAutoresizingMaskIntoConstraints="NO" id="RDn-pC-Nb1">
@@ -105,7 +107,7 @@
                                 <rect key="frame" x="0.0" y="198" width="375" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mcy-7O-bFo" id="llD-rR-Ogd">
-                                    <frame key="frameInset" width="375" height="62"/>
+                                    <frame key="frameInset" width="375" height="61"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moB-86-I9I">
@@ -143,7 +145,9 @@
                             <outlet property="delegate" destination="iSA-1z-9sJ" id="RIJ-iu-TKm"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="More" id="AuQ-8s-s3f"/>
+                    <navigationItem key="navigationItem" title="More" id="AuQ-8s-s3f">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="b9l-8c-dfV"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="fcL-Av-8kq" id="ppu-N4-tSv"/>
                         <segue destination="drS-Dm-jt0" kind="show" identifier="MoreToDetailSegue" id="xAd-fn-gGY"/>
@@ -170,7 +174,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9XF-l7-zK9">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" showsUserLocation="YES" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9XF-l7-zK9">
                                 <gestureRecognizers/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aiB-rj-8su" userLabel="Right View">
@@ -296,11 +300,42 @@
                         <outlet property="mapView" destination="9XF-l7-zK9" id="qfT-OD-sue"/>
                         <outlet property="nameLabel" destination="TwW-fN-eM5" id="zla-Gf-NJv"/>
                         <outlet property="pictureImageView" destination="yKr-kF-agP" id="FzC-re-JhQ"/>
+                        <segue destination="3ZJ-Ua-OBm" kind="show" identifier="ShowFullMapSegue" id="H6X-sh-Pat"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uuL-5Z-i65" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1724" y="-258"/>
+            <point key="canvasLocation" x="1727" y="-259"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="3KO-V8-v5L">
+            <objects>
+                <viewController id="3ZJ-Ua-OBm" customClass="MapViewController" customModule="EventBuddy" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RkT-Y1-t7t"/>
+                        <viewControllerLayoutGuide type="bottom" id="gat-xn-w7n"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="acF-6i-XUo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PvO-1F-WCP"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PvO-1F-WCP" firstAttribute="leading" secondItem="acF-6i-XUo" secondAttribute="leading" id="1hC-M1-wbr"/>
+                            <constraint firstItem="gat-xn-w7n" firstAttribute="top" secondItem="PvO-1F-WCP" secondAttribute="bottom" id="ESJ-Ja-24u"/>
+                            <constraint firstItem="PvO-1F-WCP" firstAttribute="top" secondItem="acF-6i-XUo" secondAttribute="top" id="gcG-Yx-JFy"/>
+                            <constraint firstAttribute="trailing" secondItem="PvO-1F-WCP" secondAttribute="trailing" id="pip-lp-odX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="PvO-1F-WCP" id="Fs3-ht-pDh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e9t-R2-wWN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2660" y="-259.52023988005999"/>
         </scene>
         <!--Splash Screen View Controller-->
         <scene sceneID="OQU-gi-GWT">

@@ -22,8 +22,8 @@ class DetailViewController: UIViewController {
     
     @objc
     func mapWasTapped() {
-        self.shouldUpdateMap = false
-        self.mapView.removeGestureRecognizer(eb)
+        self.performSegue(withIdentifier: "ShowFullMapSegue", sender: self)
+        
     }
     let regionRadius: CLLocationDistance = 1000
     private let eb = EBGestureRecognizer()
@@ -32,8 +32,7 @@ class DetailViewController: UIViewController {
             self.updateDisatenceLabel()
         }
     }
-    
-    var shouldUpdateMap = true
+
     var userLocation: CLLocation? {
         didSet {
             self.updateDisatenceLabel()
@@ -45,9 +44,6 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.mapView.delegate = self
-
-        LocationManager.shared.delegate = self
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -58,6 +54,10 @@ class DetailViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        self.mapView.delegate = self
+        
+        LocationManager.shared.delegate = self
         
         eb.addTarget(self, action: #selector(mapWasTapped))
         self.mapView.addGestureRecognizer(eb)
@@ -141,12 +141,30 @@ class DetailViewController: UIViewController {
             
             let route = response.routes[0]
             self.mapView.add(route.polyline, level: .aboveRoads)
-
-            if self.shouldUpdateMap {
-                let rect = route.polyline.boundingMapRect.scaleToFitMap()
-                self.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: false)
+            
+            
+            let rect = route.polyline.boundingMapRect.scaleToFitMap()
+            self.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: false)
+            
+            
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let identifier = segue.identifier else {
+            return
+        }
+        
+        switch identifier {
+        case "ShowFullMapSegue":
+            if let dvc = segue.destination as? MapViewController {
+                dvc.destinationLocation     = self.placeLocation
+                dvc.userLocation            = self.userLocation
+                dvc.titleString             = self.model?.name
             }
-
+        default: break
         }
         
     }
@@ -168,6 +186,7 @@ extension DetailViewController: MKMapViewDelegate {
     }
 
 }
+
 private extension MKMapRect {
     func scaleToFitMap() -> MKMapRect {
         return MKMapRect(

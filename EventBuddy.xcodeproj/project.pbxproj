@@ -34,6 +34,7 @@
 		7AD947E41DBC0E870076714D /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD947E31DBC0E870076714D /* GroupModel.swift */; };
 		7AD947E61DBC0F250076714D /* SingularObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD947E51DBC0F250076714D /* SingularObjectModel.swift */; };
 		7AEFD7051DF0D32B00C6016E /* EBGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEFD7041DF0D32B00C6016E /* EBGestureRecognizer.swift */; };
+		7AF735111DF482130000FBA1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF735101DF482130000FBA1 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		7AD947E31DBC0E870076714D /* GroupModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupModel.swift; path = Models/GroupModel.swift; sourceTree = "<group>"; };
 		7AD947E51DBC0F250076714D /* SingularObjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SingularObjectModel.swift; path = Models/SingularObjectModel.swift; sourceTree = "<group>"; };
 		7AEFD7041DF0D32B00C6016E /* EBGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EBGestureRecognizer.swift; path = GestureRecognizers/EBGestureRecognizer.swift; sourceTree = "<group>"; };
+		7AF735101DF482130000FBA1 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = ViewControllers/MapViewController.swift; sourceTree = "<group>"; };
 		ECD7ADBC4CB9EAE910574CEF /* Pods_EventBuddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EventBuddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F991EC279FCCE81630A37688 /* Pods-EventBuddy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventBuddy.release.xcconfig"; path = "Pods/Target Support Files/Pods-EventBuddy/Pods-EventBuddy.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -169,6 +171,7 @@
 				7A3CE07B1DD782430043B524 /* SplashScreenViewController.swift */,
 				7A3CE07D1DD78C930043B524 /* TabBarViewController.swift */,
 				7A3CE07F1DD7BDEA0043B524 /* DetailViewController.swift */,
+				7AF735101DF482130000FBA1 /* MapViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				7A3CE0861DE81C3A0043B524 /* KeywordTypes.swift in Sources */,
 				7A3CE07E1DD78C930043B524 /* TabBarViewController.swift in Sources */,
 				7A2488BD1DBBF81600616839 /* MoreHeaderTableViewCell.swift in Sources */,
+				7AF735111DF482130000FBA1 /* MapViewController.swift in Sources */,
 				7A3CE07C1DD782430043B524 /* SplashScreenViewController.swift in Sources */,
 				7AEFD7051DF0D32B00C6016E /* EBGestureRecognizer.swift in Sources */,
 				7A0225321DD3BD1000920408 /* GameViewController.swift in Sources */,

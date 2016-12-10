@@ -13,50 +13,13 @@ class MoreTableViewController: UITableViewController {
     @IBOutlet var searchBar: UISearchBar!
 
     var data = [GroupModel]()
-    
-    var selectedSection: Int? {
-        didSet {
-         
-            if  let selectedSection = self.selectedSection,
-                oldValue == selectedSection {
-                
-                self.selectedSection = nil
-            
-            }
-            
-            self.tableView.reloadData()
-        }
-    }
-    
-    var selectedModel: SingularObjectModel? {
-        didSet {
-            self.performSegue(withIdentifier: Storyboard.moreToDetailSegue, sender: self)
-        }
-    }
-    
+    var selectedModel: BaseModel? = nil
     private struct Storyboard {
         static let moreToDetailSegue = "MoreToDetailSegue"
+        static let moreToSectionSegue = "MoreToSectionSegue"
         static let cell = "MoreTableViewCell"
-        static let header = "MoreHeaderTableViewCell"
-    }
-    
-    private func getSection(number: Int) -> [SingularObjectModel] {
-        
-        return Array(self.data[number].models)
     }
 
-    private func getSectionNumber(for sectionTitle: String) -> Int? {
-        
-        for (index,groupModel) in self.data.enumerated() {
-            if groupModel.name == sectionTitle {
-                return index
-            }
-        }
-
-        return nil
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -68,57 +31,33 @@ class MoreTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return self.data.count
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if let selectedSection = self.selectedSection,
-            selectedSection == section {
-            
-            return self.getSection(number: section).count
-        }
-        
-        return 0
+        return self.data.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Storyboard.cell, for: indexPath) as? MoreTableViewCell
 
-        cell?.placeName.text = self.getSection(number: indexPath.section)[indexPath.row].name
+        cell?.set(groupModel: self.data[indexPath.row])
 
         return cell ?? MoreTableViewCell()
     }
- 
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Storyboard.header) as? MoreHeaderTableViewCell
-        
-        cell?.sectionTitleButton.setTitle(self.data[section].name, for: .normal)
-        
-        if let selectedSection = self.selectedSection {
-            cell?.isOppened = selectedSection == section
-        }
-        
-        return cell
-    }
     
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 80
-    }
-    
-    @IBAction func sectionHeaderWasPressed(_ sender: UIButton) {
-        
-        guard let buttonTitle = sender.titleLabel?.text else { return }
-        
-        self.selectedSection = self.getSectionNumber(for: buttonTitle)
-
-    }
-
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectedModel = self.data[indexPath.section].models[indexPath.row]
+        
+        self.selectedModel = self.data[indexPath.row]
+        
+        if let _ = self.selectedModel as? GroupModel {
+            self.performSegue(withIdentifier: Storyboard.moreToSectionSegue, sender: self)
+        } else {
+            self.performSegue(withIdentifier: Storyboard.moreToDetailSegue, sender: self)
+        }
+
     }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard let id = segue.identifier else { return }
@@ -126,7 +65,13 @@ class MoreTableViewController: UITableViewController {
         switch id {
         case Storyboard.moreToDetailSegue:
             if let dvc = segue.destination as? DetailViewController {
-                dvc.model = self.selectedModel
+                dvc.model = self.selectedModel as? SingularObjectModel
+            }
+        case Storyboard.moreToSectionSegue:
+            if  let dvc = segue.destination as? MoreSectionTableViewController,
+                let selectedModel = self.selectedModel as? GroupModel {
+                dvc.data = Array(selectedModel.models)
+                dvc.titleString = selectedModel.name
             }
         default:
             print("unknown id")

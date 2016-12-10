@@ -13,6 +13,8 @@
 		7A0225301DD3B4E000920408 /* TabBarAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A02252F1DD3B4E000920408 /* TabBarAssets.xcassets */; };
 		7A0225321DD3BD1000920408 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0225311DD3BD1000920408 /* GameViewController.swift */; };
 		7A0225341DD3BF9400920408 /* RealmAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0225331DD3BF9400920408 /* RealmAdapter.swift */; };
+		7A04AF5C1DFA06F9003023ED /* MoreSectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A04AF5B1DFA06F9003023ED /* MoreSectionTableViewController.swift */; };
+		7A04AF5E1DFA0731003023ED /* MoreSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A04AF5D1DFA0731003023ED /* MoreSectionTableViewCell.swift */; };
 		7A24889F1DBB853500616839 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A24889E1DBB853500616839 /* AppDelegate.swift */; };
 		7A2488A41DBB853500616839 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A2488A21DBB853500616839 /* Main.storyboard */; };
 		7A2488A61DBB853500616839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A2488A51DBB853500616839 /* Assets.xcassets */; };
@@ -44,6 +46,8 @@
 		7A02252F1DD3B4E000920408 /* TabBarAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TabBarAssets.xcassets; sourceTree = "<group>"; };
 		7A0225311DD3BD1000920408 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameViewController.swift; path = ViewControllers/GameViewController.swift; sourceTree = "<group>"; };
 		7A0225331DD3BF9400920408 /* RealmAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmAdapter.swift; path = Adapters/RealmAdapter.swift; sourceTree = "<group>"; };
+		7A04AF5B1DFA06F9003023ED /* MoreSectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoreSectionTableViewController.swift; path = ViewControllers/MoreSectionTableViewController.swift; sourceTree = "<group>"; };
+		7A04AF5D1DFA0731003023ED /* MoreSectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoreSectionTableViewCell.swift; path = Views/MoreSectionTableViewCell.swift; sourceTree = "<group>"; };
 		7A24889B1DBB853500616839 /* EventBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A24889E1DBB853500616839 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A2488A31DBB853500616839 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				7A2488B41DBB892100616839 /* MoreTableViewController.swift */,
+				7A04AF5B1DFA06F9003023ED /* MoreSectionTableViewController.swift */,
 				7A0225311DD3BD1000920408 /* GameViewController.swift */,
 				7A3CE07B1DD782430043B524 /* SplashScreenViewController.swift */,
 				7A3CE07D1DD78C930043B524 /* TabBarViewController.swift */,
@@ -189,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				7A2488B61DBB8FCB00616839 /* MoreTableViewCell.swift */,
+				7A04AF5D1DFA0731003023ED /* MoreSectionTableViewCell.swift */,
 				7A2488BC1DBBF81600616839 /* MoreHeaderTableViewCell.swift */,
 				7A3CE0771DD77A260043B524 /* ScrollItemView.swift */,
 				7A3CE0791DD77A510043B524 /* ScrollItemView.xib */,
@@ -369,6 +375,7 @@
 				7A3CE0801DD7BDEA0043B524 /* DetailViewController.swift in Sources */,
 				7A2488B51DBB892100616839 /* MoreTableViewController.swift in Sources */,
 				7A2488B71DBB8FCB00616839 /* MoreTableViewCell.swift in Sources */,
+				7A04AF5E1DFA0731003023ED /* MoreSectionTableViewCell.swift in Sources */,
 				19B2CE5C1DDA839E0075473D /* MapObjectModel.swift in Sources */,
 				7A3CE0781DD77A260043B524 /* ScrollItemView.swift in Sources */,
 				7A24889F1DBB853500616839 /* AppDelegate.swift in Sources */,
@@ -385,6 +392,7 @@
 				7A0225321DD3BD1000920408 /* GameViewController.swift in Sources */,
 				7AD947E11DBC0D8F0076714D /* BaseModel.swift in Sources */,
 				7AD947E41DBC0E870076714D /* GroupModel.swift in Sources */,
+				7A04AF5C1DFA06F9003023ED /* MoreSectionTableViewController.swift in Sources */,
 				7AD947E61DBC0F250076714D /* SingularObjectModel.swift in Sources */,
 				7A0225341DD3BF9400920408 /* RealmAdapter.swift in Sources */,
 			);
@@ -514,7 +522,7 @@
 				DEVELOPMENT_TEAM = 42H8FWNPQW;
 				INFOPLIST_FILE = EventBuddy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = wyci;
+				PRODUCT_BUNDLE_IDENTIFIER = EventBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -529,7 +537,7 @@
 				DEVELOPMENT_TEAM = 42H8FWNPQW;
 				INFOPLIST_FILE = EventBuddy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = wyci;
+				PRODUCT_BUNDLE_IDENTIFIER = EventBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
